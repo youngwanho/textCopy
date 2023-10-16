@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클립보드 버튼</title>
+</head>
+<style>
+    div {
+        width: 100vw;
+        height: 100vh;
+        background: #ffebd2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div button {
+        margin-left: 10px;
+        background: #ffa364;
+        border: 1px solid #ffa364;
+        border: none;
+        height: 40px;
+        width: 70px;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    div input {
+        height: 40px;
+        width: 200px;
+        font-size: 15px;
+        padding: 0;
+        padding-left: 10px;
+        background: none;
+        border-radius: 5px;
+        border: 1px solid #ffa364;
+    }
+</style>
+<body>
+    <div>
+        <input class="input-tel" type="text" value="010-0000-0000" readonly>
+        <button class="btn-copy">복사하기</button>
+    </div>
+    <script>
+        // 출처: youngwanho(mavin) 개인 작업물
+        // 업데이트: 2023.10.16
+        // 클립보드버튼 자료입니다.
+        const btnCopy = document.querySelector(".btn-copy");
+        
+        btnCopy.addEventListener("click",function(){
+            const copiedText = document.querySelector(".input-tel");
+            copiedText.select();
+            copiedText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+        });
+    </script>
+</body>
+</html>
